@@ -7,14 +7,14 @@ import { useTheme } from '@mui/material/styles';
 
 function CustomLink(props) {
   const theme = useTheme();
-  return <Link css={{ 'margin-right': theme.spacing(1) }} {...props}></Link>;
+  return <Link css={{ marginRight: theme.spacing(1) }} {...props}></Link>;
 }
 
 function MailLink(props) {
   return (
     <Link
       css={{
-        'font-style': 'italic',
+        fontStyle: 'italic',
       }}
       {...props}
     ></Link>
@@ -26,12 +26,12 @@ function Footer(props) {
   return (
     <footer
       css={{
-        'margin-top': 'auto',
-        'background-color':
+        marginTop: 'auto',
+        backgroundColor:
           theme.palette.mode === 'light'
             ? theme.palette.grey[200]
             : theme.palette.grey[800],
-        'text-align': 'left',
+        textAlign: 'left',
         padding: theme.spacing(3, 2),
       }}
       {...props}

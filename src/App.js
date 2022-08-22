@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Container from '@mui/material/Container';
-// import { makeStyles } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
+
+import MuiContainer from '@mui/material/Container';
 
 import Navbar from './components/layouts/Navbar';
 import Footer from './components/layouts/Footer';
@@ -10,36 +11,35 @@ import Footer from './components/layouts/Footer';
 
 import Landing from './components/pages/Landing';
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     display: 'flex',
-//     flexDirection: 'column',
-//     minHeight: '100vh',
-//   },
-//   pageContent: {
-//     padding: theme.spacing(6, 0),
-//   },
-// }));
+const Container = styled(MuiContainer)(({ theme }) => ({
+  padding: theme.spacing(6, 0),
+}));
 
+function MainContainer(props) {
+  return (
+    <div
+      css={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+      {...props}
+    ></div>
+  );
+}
 const App = () => {
-  const classes = {};
-
   return (
     <Router>
-      <div className={classes.root}>
+      <MainContainer>
         <Navbar></Navbar>
-        <Container
-          maxWidth='md'
-          component='main'
-          className={classes.pageContent}
-        >
+        <Container maxWidth='md' component='main'>
           {/* <Alert /> */}
           <Routes>
             <Route path='/' element={<Landing />} />
           </Routes>
         </Container>
         <Footer></Footer>
-      </div>
+      </MainContainer>
     </Router>
   );
 };
