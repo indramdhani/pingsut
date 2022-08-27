@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from "react";
-import * as brain from "https://unpkg.com/brain.js@2.0.0-beta.15/dist/browser.js";
 import Button from "@mui/material/Button";
 import MuiCard from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
