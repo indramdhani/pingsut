@@ -7,8 +7,11 @@ import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
-
+import { init, track, trackPages, parameters } from "insights-js";
 import { styled, useTheme } from "@mui/material/styles";
+
+init(process.env.REACT_APP_TRACKING);
+trackPages();
 
 const Card = styled(MuiCard)(({ theme }) => ({
   border: 0,
@@ -39,7 +42,17 @@ const Landing = (props) => {
   const [pattern, setPattern] = useState([]);
   const [winner, setWinner] = useState("");
 
+  const sendEvent = (selected) => {
+    track({
+      id: "user-choice",
+      parameters: {
+        choice: selected,
+      },
+    });
+  };
+
   const playerChoiceOnClick = async (choice) => {
+    sendEvent(choice);
     setPlayerChoice(choice);
     const tempAiChoice = await calculateAiChoice();
     setAiChoice(tempAiChoice);
@@ -115,7 +128,7 @@ const Landing = (props) => {
     >
       <Card variant="outlined">
         <CardContent sx={{ textAlign: "center" }}>
-          <Typography variant="h2">Pingsut</Typography>
+          <Typography variant="h2">{process.env.REACT_APP_TITLE}</Typography>
           <Typography variant="subtitle1" gutterBottom>
             dengan Artificial Intelligence
           </Typography>
