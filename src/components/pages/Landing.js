@@ -115,7 +115,7 @@ const Landing = (props) => {
     >
       <Card variant="outlined">
         <CardContent sx={{ textAlign: "center" }}>
-          <Typography variant="h2">Pingsut</Typography>
+          <Typography variant="h2">{process.env.REACT_APP_TITLE}</Typography>
           <Typography variant="subtitle1" gutterBottom>
             dengan Artificial Intelligence
           </Typography>
