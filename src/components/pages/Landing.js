@@ -45,6 +45,9 @@ const Landing = (props) => {
 
   const sendEvent = (selected) => {
     window.umami.trackEvent("user-choice", { choice: selected });
+    window.umami.trackEvent(`user-choice-${playerChoiceText(selected)}`, {
+      choice: selected,
+    });
 
     track({
       id: "user-choice",
@@ -179,7 +182,6 @@ const Landing = (props) => {
             sx={{ mb: theme.spacing(1) }}
           >
             <Button
-              class="umami--click--ibu-jari"
               variant="contained"
               size="medium"
               onClick={async () => {
@@ -189,7 +191,6 @@ const Landing = (props) => {
               Ibu Jari
             </Button>
             <Button
-              class="umami--click--ibu-telunjuk"
               variant="contained"
               size="medium"
               onClick={async () => {
@@ -199,7 +200,6 @@ const Landing = (props) => {
               Telunjuk
             </Button>
             <Button
-              class="umami--click--ibu-kelingking"
               variant="contained"
               size="medium"
               onClick={async () => {
