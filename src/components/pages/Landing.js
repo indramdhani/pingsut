@@ -12,6 +12,7 @@ import { styled, useTheme } from "@mui/material/styles";
 
 init(process.env.REACT_APP_TRACKING);
 trackPages();
+window.umami.trackView("/");
 
 const Card = styled(MuiCard)(({ theme }) => ({
   border: 0,
@@ -43,6 +44,8 @@ const Landing = (props) => {
   const [winner, setWinner] = useState("");
 
   const sendEvent = (selected) => {
+    window.umami.trackEvent("user-choice", { choice: selected });
+
     track({
       id: "user-choice",
       parameters: {
