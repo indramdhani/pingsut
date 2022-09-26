@@ -43,7 +43,7 @@ const Landing = (props) => {
   const [winner, setWinner] = useState("");
 
   const sendEvent = (selected) => {
-    window.analytics.track("user-choice", {
+    window.analytics.track("option_selected", {
       choice: playerChoiceText(selected),
     });
 
